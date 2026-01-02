@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Watchlist</title>
+</head>
+<body>
+    <header>
+        <h1>Find Your Film</h1>
+        <span><a href="/watchlist.html">My Watchlist</a></span>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="search for a movie">
+            <button id="search-button">Search</button>
+        </div>
+    </header>
+    <main>
+        <div class="empty-state">
+            <img class="empty-screen__img" src="/assets/images/Icon.png">
+        </div>
+        <div class="populated-state" id="populated-state">
+            <div id="populated-state__error" style="display: none;">
+                <p>Unable To find what you are looking for. Please try another Search</p>
+            </div>
+        </div>
+    </main>
+    <script type="module", src="/index.js"></script>
+</body>
+</html>
