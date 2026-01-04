@@ -7,7 +7,7 @@ let searchBtn = document.getElementById('search-button')
 let searchInputEl = document.getElementById('search-input')
 let fullMoviesData = []
 
-document.getElementById('populated-state__error').style.display = 'none';
+populatedStateEl.style.display = 'none'
 searchBtn.addEventListener("click", async () => {
     try {
         const res = await fetch(`http://www.omdbapi.com/?apikey=be014527&s=${searchInputEl.value}&type=movie`)
@@ -25,12 +25,15 @@ searchBtn.addEventListener("click", async () => {
         fullMoviesData = await getAllMovieDetails(data.Search)
         const htmlContent = await getMovieCardHtml(fullMoviesData, 'search')
         document.querySelector(".empty-state").style.display = "none";
+        document.getElementById('populated-state__error').style.display = 'none';
+        populatedStateEl.style.display = 'block'
         populatedStateEl.innerHTML = htmlContent
 
     } catch (err)
     {
         console.log(err)
         document.querySelector(".empty-state").style.display = "none";
+        populatedStateEl.style.display = 'none'
         document.getElementById('populated-state__error').style.display = 'block';
     }
     

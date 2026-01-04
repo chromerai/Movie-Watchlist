@@ -117,6 +117,10 @@ main {
     align-items: center;
 }
 
+.empty-state {
+    text-align: center;
+}
+
 .populated-state {
     padding: 25px;
 }
@@ -126,7 +130,7 @@ main {
     margin-bottom: 15px;
     display: flex;
     border-bottom: 1px solid #E5E7EB;
-    gap: 15px;
+    gap: 18px;
     align-items: center;
 }
 
@@ -146,11 +150,11 @@ main {
     justify-content: start;
     align-items: center;
     color: #FFFFFF;
-    gap: 5px; 
+    gap: 10px; 
 }
 
 .ratings {
-    color: goldenrod;
+    color: #FEC654;
 }
 
 .movie-card__details-metadata {

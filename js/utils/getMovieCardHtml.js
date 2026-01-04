@@ -33,7 +33,7 @@ export async function getMovieCardHtml(ObjList, context='search') {
         <img class="movie-card__img" src="${poster}" onerror="this.src='/assets/images/placeholderPoster.png';" alt="Poster for ${item.Title}">
         <div class="movie-card__details">
             <div class="movie-card__details-header">
-                <h2>${item.Title}</h2>
+                <h3>${item.Title}</h3>
                 <p><span class="ratings">&starf;</span> ${item.imdbRating}</p> 
             </div>
             <div class="movie-card__details-metadata">
