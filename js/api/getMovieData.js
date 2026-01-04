@@ -1,5 +1,5 @@
 export async function getMovieDetails(imdbID) {
-    const res = await fetch(`http://www.omdbapi.com/?apikey=be014527&i=${imdbID}`)
+    const res = await fetch(`https://www.omdbapi.com/?apikey=be014527&i=${imdbID}`)
     if(!res.ok) {
         throw new Error(`Error fetching details for movie with id: ${imdbID}`)
         return;

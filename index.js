@@ -10,7 +10,7 @@ let fullMoviesData = []
 populatedStateEl.style.display = 'none'
 searchBtn.addEventListener("click", async () => {
     try {
-        const res = await fetch(`http://www.omdbapi.com/?apikey=be014527&s=${searchInputEl.value}&type=movie`)
+        const res = await fetch(`https://www.omdbapi.com/?apikey=be014527&s=${searchInputEl.value}&type=movie`)
         const data = await res.json()
         if(!data.Response){
             throw new Error(data.Error)
