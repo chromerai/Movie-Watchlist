@@ -41,7 +41,7 @@ export async function getMovieCardHtml(ObjList, context='search') {
                 <p>${item.Genre}</p>
                 <div class="movie-card__details-add-btn">
                     ${actionButton}
-                    <span>Watchlist</span>
+                    ${context === 'search' ? `<span>Watchlist</span>` : `<span>Remove</span>`}
                 </div>
             </div>
             <div>
