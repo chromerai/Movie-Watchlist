@@ -44,10 +44,10 @@ export function addToWatchList(movie) {
 export function removeFromWatchList(movieID) {
     const watchlist = getWatchlist()
     const watchlistLength = watchlist.length
-    const updatedWatchlist = watchlist.filter(item => item.imdbID === movieID)
+    const updatedWatchlist = watchlist.filter(item => item.imdbID !== movieID)
     
     if(watchlistLength === updatedWatchlist.length){
-        console.warn(`Movie with ID ${imdbID} not found in watchlist`)
+        console.warn(`Movie with ID ${movieID} not found in watchlist`)
         return false;
     }
 

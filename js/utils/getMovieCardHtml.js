@@ -23,9 +23,9 @@ export async function getMovieCardHtml(ObjList, context='search') {
     if(context === 'search') {
         const isInWatchlist = checkIfInWatchList(item.imdbID)
         actionButton = isInWatchlist ? 
-        "<span class='watchlist-status'>Added to</span>" :`<button class="add-btn" data-add="${item.imdbID}">+</button>`
+        "<span class='watchlist-status'>Added to</span>" :`<button class="action-btn add-btn" data-add="${item.imdbID}">+</button>`
     } else if(context === 'watchlist') {
-        actionButton = `<button class="remove-btn" data-remove="${item.imdbID}">-</button>`
+        actionButton = `<button class="action-btn remove-btn" data-remove="${item.imdbID}">-</button>`
     }
 
 
