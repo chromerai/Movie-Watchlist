@@ -1,1 +1,2 @@
 fetch(`http://www.omdbapi.com/?apikey=be014527&i=tt1165254`).then(res => res.json()).then(data => console.log(data))
+

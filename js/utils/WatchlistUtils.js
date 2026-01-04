@@ -63,3 +63,8 @@ export function clearWatchList() {
         return false;
     }
 }
+
+export function getWatchListLength() {
+    const watchlist = getWatchlist()
+    return watchlist.length
+}
