@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/index.css">
     <title>Movie Watchlist</title>
 </head>
 <body>
     <header>
-        <h1>Find Your Film</h1>
-        <span><a href="/watchlist.html">My Watchlist</a></span>
+        <div id="header-content">
+            <h1>Find Your Film</h1>
+            <span><a href="/watchlist.html">My Watchlist</a></span>
+        </div>
         <div class="search-container">
             <input type="text" id="search-input" placeholder="search for a movie">
             <button id="search-button">Search</button>
@@ -16,10 +19,10 @@
     </header>
     <main>
         <div class="empty-state">
-            <img class="empty-screen__img" src="/assets/images/Icon.png">
+            <img class="empty-state__img" src="/assets/images/Icon.png">
         </div>
         <div class="populated-state" id="populated-state">
-            <div id="populated-state__error" style="display: none;">
+            <div id="populated-state__error" style="display: none; color: #9CA3AF;">
                 <p>Unable To find what you are looking for. Please try another Search</p>
             </div>
         </div>

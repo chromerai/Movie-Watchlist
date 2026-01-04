@@ -1,0 +1,175 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+*, 
+*::after, *::before {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: white
+}
+
+/*===========================
+        HEADER
+===========================*/
+
+header {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), URL("/assets/images/andre-tan-THJJRUhNlEc-unsplash.jpg");
+    background-size: cover;
+    background-position: center calc(30% - 3px);
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0, 0.4);
+    color: white;
+    height: 230px;
+    width: 650px;
+}
+
+#header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.search-container {
+    position: absolute;
+    display: flex;
+    max-width: 600px;
+    width: 80%;
+    bottom: -25px;
+    left:10%;
+    transform: translate(-50% 50%);
+    z-index: 10;
+
+    
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+#search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 18px 30px;
+    font-size: 16px;
+    background-color: #2E2E2F;
+    color: #9CA3AF
+}
+
+#search-input:-webkit-autofill,
+#search-input:-webkit-autofill:hover,
+#search-input:-webkit-autofill:focus,
+#search-input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #2E2E2F inset !important;
+    box-shadow: 0 0 0 1000px #2E2E2F inset !important;
+    -webkit-text-fill-color: #9CA3AF !important;
+}
+
+#search-button {
+    border: none;
+    background: #667eea;
+    color: white;
+    padding: 18px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #4B4B4B;
+    
+}
+
+#search-button:hover {
+    transform: perspective(100px) translateZ(10px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.9),
+                 0 0 20px rgba(154, 171, 216, 0.5);
+}
+
+#search-button:active {
+    transform: perspective(100px) translateZ(2px);
+    box-shadow: 0 0 20px rgba(154, 171, 216, 0.5);
+}
+
+/*============================
+        MAIN
+============================*/
+
+main {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    width: 650px;
+    min-height: 750px;
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.populated-state {
+    padding: 25px;
+}
+
+.movie-card{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    border-bottom: 1px solid #E5E7EB;
+    gap: 15px;
+    align-items: center;
+}
+
+.movie-card__img {
+    width: 130px;
+    height:178px;
+}
+
+.movie-card__details {
+    flex: 1;
+    padding: 20px 0;
+
+}
+
+.movie-card__details-header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    color: #FFFFFF;
+    gap: 5px; 
+}
+
+.ratings {
+    color: goldenrod;
+}
+
+.movie-card__details-metadata {
+    display: flex;
+    justify-content: space-between;
+    color: #FFFFFF;
+    align-items: center;
+}
+
+.movie-card__details-plot {
+    color: #A5A5A5;
+}
+
+.action-btn {
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: white;
+    border: none;
+    font-size: medium;
+    text-align: center;
+}

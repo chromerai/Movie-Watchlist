@@ -1,9 +1,11 @@
-import {getMovieCardHtml} from "./utils/getMovieCardHtml.js"
+import { getAllMovieDetails } from "./js/api/getMovieData.js"
+import {getMovieCardHtml} from "./js/utils/getMovieCardHtml.js"
 
 let populatedStateEl = document.getElementById('populated-state')
 let searchBtn = document.getElementById('search-button')
 let searchInputEl = document.getElementById('search-input')
-let watchlist = JSON.parse(localStorage.getItem("watchlist"))
+let watchlist = JSON.parse(localStorage.getItem("watchlist")) || []
+let fullMoviesData = []
 
 document.getElementById('populated-state__error').style.display = 'none';
 searchBtn.addEventListener("click", async () => {
@@ -15,23 +17,47 @@ searchBtn.addEventListener("click", async () => {
             return;
         }
 
-        const searchList = data.Search
-        const htmlContent = await getMovieCardHtml(searchList)
+        if(!data.Search) {
+            throw new Error("No content found")
+            return
+        }
+
+        fullMoviesData = await getAllMovieDetails(data.Search)
+        const htmlContent = await getMovieCardHtml(fullMoviesData, 'search')
+        document.querySelector(".empty-state").style.display = "none";
         populatedStateEl.innerHTML = htmlContent
 
     } catch (err)
     {
         console.log(err)
+        document.querySelector(".empty-state").style.display = "none";
         document.getElementById('populated-state__error').style.display = 'block';
     }
     
 })
 
-const Btns = document.querySelectorAll('.add-btn')
-Btns.forEach(btn => {addEventListener('click', (e) => {
-    const id = e.target.dataset.add
-    const watchlistItem = searchList.filter(item => item.imdbID === id)[0]
+populatedStateEl.addEventListener('click', (e) => {
+    if(e.target.classList.contains('add-btn')){
+        const id = e.target.dataset.add
+        const watchlistItem = fullMoviesData.find(item => item.imdbID === id)
+        watchlist.push(watchlistItem)
+        localStorage.setItem('watchlist', JSON.stringify(watchlist))
 
-    watchlist.push(watchlistItem)
-    localStorage.setItem('watchlist', JSON.stringify(watchlist))
-})})
+    } 
+    
+    if(e.target.classList.contains('read-more-btn')) {
+        const btn = e.target
+        const plotEl = btn.previousElementSibling;
+
+        plotEl.classList.toggle('expanded')
+
+        if(plotEl.classList.contains('expanded')) {
+            plotEl.textContent = plotEl.dataset.full
+            btn.textContent = 'Show less'
+        } else {
+            plotEl.textContent = plotEl.dataset.short
+            btn.textContent = 'Read more'
+        }
+    }
+    
+})
