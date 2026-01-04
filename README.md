@@ -5,7 +5,7 @@
 Build a movie watchlist app with the following requirements:
 
 ## Design
-- Follow the provided Figma design specification
+- Follow the provided [Figma design specification](https://www.figma.com/design/hPh5YXocWXhsXJE0nq7qJ7/Movie-Watchlist--Copy-?node-id=0-1&p=f&t=ual37X7BpIDtX09R-0)
 - Access the Figma file by clicking the provided image link
 - Duplicate the Figma file to work with your own copy
 
