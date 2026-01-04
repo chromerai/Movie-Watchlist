@@ -163,7 +163,7 @@ main {
     color: #A5A5A5;
 }
 
-.action-btn {
+.add-btn {
     padding: 5px;
     width: 25px;
     height: 25px;
@@ -172,4 +172,12 @@ main {
     border: none;
     font-size: medium;
     text-align: center;
+}
+
+.read-more-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
 }

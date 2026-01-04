@@ -1,10 +1,10 @@
 import { getAllMovieDetails } from "./js/api/getMovieData.js"
 import {getMovieCardHtml} from "./js/utils/getMovieCardHtml.js"
+import { addToWatchList } from "./js/utils/WatchlistUtils.js"
 
 let populatedStateEl = document.getElementById('populated-state')
 let searchBtn = document.getElementById('search-button')
 let searchInputEl = document.getElementById('search-input')
-let watchlist = JSON.parse(localStorage.getItem("watchlist")) || []
 let fullMoviesData = []
 
 document.getElementById('populated-state__error').style.display = 'none';
@@ -40,9 +40,10 @@ populatedStateEl.addEventListener('click', (e) => {
     if(e.target.classList.contains('add-btn')){
         const id = e.target.dataset.add
         const watchlistItem = fullMoviesData.find(item => item.imdbID === id)
-        watchlist.push(watchlistItem)
-        localStorage.setItem('watchlist', JSON.stringify(watchlist))
-
+        if(addToWatchList(watchlistItem)) {
+            e.target.parentElement.textContent = 'Added!'
+            e.target.disabled = true;
+        }
     } 
     
     if(e.target.classList.contains('read-more-btn')) {
