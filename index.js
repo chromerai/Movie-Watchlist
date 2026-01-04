@@ -41,8 +41,8 @@ populatedStateEl.addEventListener('click', (e) => {
         const id = e.target.dataset.add
         const watchlistItem = fullMoviesData.find(item => item.imdbID === id)
         if(addToWatchList(watchlistItem)) {
-            e.target.parentElement.textContent = 'Added!'
-            e.target.disabled = true;
+            const parent = e.target.parentElement
+            parent.innerHTML = `<span style="color: #4caf50; font-weight: 600;">✓ Added!</span>`
         }
     } 
     
