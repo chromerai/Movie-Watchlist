@@ -17,7 +17,7 @@ function saveWatchList(watchlist) {
 
 export function checkIfInWatchList(movieID) {
     const watchlist = getWatchlist();
-    return watchlist.some(item => item.idmbID === movieID)
+    return watchlist.some(item => item.imdbID === movieID)
 }
 
 export function getMovieFromWatchlist(movieID) {
@@ -52,4 +52,14 @@ export function removeFromWatchList(movieID) {
     }
 
     return saveWatchList(updatedWatchlist)
+}
+
+export function clearWatchList() {
+    try {
+        localStorage.removeItem('watchlist')
+        return true;
+    } catch (err) {
+        console.error('Error clearing local storage: ', err)
+        return false;
+    }
 }
